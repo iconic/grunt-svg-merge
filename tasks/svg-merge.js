@@ -1,6 +1,6 @@
 /*
  * grunt-svg-merge
- * 
+ *
  *
  * Copyright (c) 2014 Rob Dodson
  * Licensed under the MIT license.
@@ -19,7 +19,8 @@ module.exports = function (grunt) {
     var done = this.async();
     var dest = this.data.dest;
     var options = this.options({
-      outputSuffix: '-out'
+      outputSuffix: '-out',
+      classPrefix: ''
     });
 
     var promises = [];
@@ -42,7 +43,8 @@ module.exports = function (grunt) {
         var opts = {
           inputDir: dir,
           outputDir: path.join(dest, name),
-          outputFile: outputFile
+          outputFile: outputFile,
+          classPrefix: options.classPrefix
         };
 
         svgMerge(opts, deferred.resolve);
